@@ -2,17 +2,17 @@
 
 Production-grade ML/DL system to predict semiconductor chip failures from 590 sensor readings using the UCI SECOM dataset.
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Semiconductor manufacturing produces defective chips that cost millions in recalls. This system predicts chip failures from sensor data, enabling early defect detection before shipping.
 
-## 📊 Dataset
+##  Dataset
 
 - **Source**: UCI SECOM Dataset
 - **Size**: 1,567 batches × 590 sensors
 - **Class Imbalance**: 93.3% PASS / 6.7% FAIL
 
-## 🔧 Approach
+##  Approach
 
 ### 1. Feature Engineering
 - Dropped sensors with >50% missing values (590 → 562)
@@ -46,7 +46,7 @@ Semiconductor manufacturing produces defective chips that cost millions in recal
 - Dockerized for platform-independent deployment
 - MLflow for experiment tracking
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **ML/DL**: Scikit-learn, XGBoost, TensorFlow, Keras, SMOTE
 **Tuning**: Optuna, GridSearchCV
@@ -55,7 +55,7 @@ Semiconductor manufacturing produces defective chips that cost millions in recal
 **Deployment**: FastAPI, Docker
 **Language**: Python 3.12
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 secom/
@@ -78,7 +78,7 @@ secom/
 └── README.md
 ```
 
-## 🚀 Running the API
+##  Running the API
 
 ```bash
 # Build Docker image
@@ -109,7 +109,7 @@ POST /predict
 }
 ```
 
-## 📈 Key Results
+##  Key Results
 
 - Reduced 590 sensors to 195 (67% reduction) while maintaining predictive power
 - Improved FAIL detection recall from 24% (baseline threshold) to 67% (ensemble, tuned threshold)
@@ -117,15 +117,15 @@ POST /predict
 - Best overall model: Random Forest (AUC 0.789)
 - Best FAIL detection: Stacking Ensemble (Recall 0.67)
 
-## 🔍 Key Learnings
+##  Key Learnings
 
 - **Data leakage vigilance**: Caught two significant leakage bugs — label column inclusion in features, and SMOTE applied before train/validation split
 - **Class imbalance**: Combined SMOTE + class weighting + threshold tuning rather than relying on any single technique
 - **Model selection is metric-dependent**: Random Forest wins on AUC, but the Stacking Ensemble wins on FAIL recall — the metric that matters most for catching defective chips
 
-## 👤 Author
+##  Author
 
-Jatin — Data Science Enthusiast
+Jatin -QuantumWebber
 
 ---
 *Built as an end-to-end learning project covering the complete ML lifecycle from data exploration to production deployment.*
